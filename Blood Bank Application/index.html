@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Blood Bank Application</title>
+    <style>
+      html,body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #725e5e;
+        color: #333;
+        height: 100%; 
+        margin: 0;
+      }
+      nav {
+        background-color: #8b0000; 
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nav__logo a img{
+        height: 4rem;
+        width: 5rem;
+      }
+      .nav__logo img {
+        height: 50px;
+      }
+      .nav__links {
+        list-style-type: none;
+        display: flex;
+      }
+      .nav__links .link {
+        margin: 0 15px;
+      }
+      .nav__links a {
+        color: #fff;
+        text-decoration: none;
+      }
+      .btn {
+        background-color: #ff0000;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      .header__container {
+        background-color: #573737;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 1rem;
+      }
+      .header__content {
+        max-width: 500px;
+        padding-right: 20px;
+      }
+      .header__content h1{
+        color:#9a0808;
+      }
+      .header__content p{
+        color:#bda5a5;
+      }
+      .header__image img {
+        width: 500px;
+        height: 250px;
+        padding-right: 20px;
+      }
+      .section__container1 {
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50%;
+        background-color: #4c1a1a;
+        border-radius: 10px;
+      }
+      .section__container{
+        padding: 2rem;
+      }
+      .section__container .section__header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .section__header .header__content .btn{
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .explore__grid {
+        display: flex;
+        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .explore__card {
+        background-color: #7d422e;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .explore__card span {
+        font-size: 30px;
+        color: #ff0000;
+      }
+      .class__content,
+      .join__content {
+        text-align: center;
+      }
+      .join__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .review__container {
+        background-color: #eaeaea;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      footer {
+        background-color: #8b0000; 
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+      }
+      .footer__bar {
+        background-color: #5b3a3a; 
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+      }
+      .review {
+        background-color: #433636;
+        padding: 2rem 0;
+      }
+
+      .review__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1rem;
+        background: #451919;
+        border-radius: 10px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .review__content h4 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #b78e8e;
+      }
+
+      .review__content p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #b5a8a8;
+        margin-bottom: 1rem;
+      }
+
+      .review__rating {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      .review__rating span {
+        color: #fbc02d; 
+        font-size: 1.2rem;
+      }
+
+      .review__footer {
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+      }
+
+      .review__member {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .review__member img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .review__member h5 {
+        font-size: 1rem;
+        color: #ad8c8c;
+      }
+
+      footer {
+        background-color: #473434;
+        padding: 2rem 0;
+        color: #fff;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: start;
+        flex-wrap: wrap;
+      }
+
+      .footer__links,
+      .footer__contact {
+        flex: 1;
+        min-width: 200px;
+        margin: 1rem;
+        padding-left: 50px;
+      }
+
+      .footer__links h5,
+      .footer__contact h5 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: #f28080;
+      }
+
+      .footer__links ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer__links ul li {
+        margin: 0.5rem 0;
+      }
+
+      .footer__links ul li a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer__links ul li a:hover {
+        color: #d02626;
+      }
+
+      .footer__contact p {
+        margin: 0.5rem 0;
+        font-size: 1rem;
+      }
+
+      .footer__bar {
+        background-color: #222;
+        text-align: center;
+        padding: 0.8rem;
+        color: #ffffff;
+        font-size: 0.9rem;
+      }
+
+      .footer__bar p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <img src="./images gym new/lgooblood-removebg-preview.png" alt=""> -->
+    <nav>
+      <div class="nav__logo">
+        <a href="#"><img src="./images gym new/lgooblood-removebg-preview.png" alt="Blood Bank Logo"/></a>
+      </div>
+      <ul class="nav__links">
+        <li class="link"><a href="#">Home</a></li>
+        <li class="link"><a href="./services.html">Services</a></li>
+        <li class="link"><a href="./aboutus.html">About Us</a></li>
+        <li class="link"><a href="./contactus.html">Contact Us</a></li>
+      </ul>
+      <button class="btn"><a href="./signups.php" target="_parent" style="color: white; text-decoration: none;">Sign Up</a></button>
+    </nav>
+
+    <header class="section__container header__container">
+      <div class="header__content">
+        <h4>JOIN THE FIGHT TO SAVE LIVES</h4>
+        <h1><span>DONATE</span> BLOOD, SAVE LIVES</h1>
+        <p>
+          Your contribution can make a difference. Sign up to become a blood donor and help those in need. Every drop counts!
+        </p>
+        <button class="btn"><a href="./signups.php" target="_blank" style="color: white; text-decoration: none;">Get Started, Sign Up now...</a></button>
+      </div>
+      <div class="header__image">
+        <img src="./images gym new/bloodbg.jpg" alt="Donate Blood" />
+      </div>
+    </header>
+
+    <section class="section__container explore__container">
+      <div class="explore__header">
+        <h2 class="section__header">EXPLORE OUR SERVICES</h2>
+      </div>
+      <div class="explore__grid">
+        <div class="explore__card">
+          <span><i class="ri-heart-fill"></i></span>
+          <h4>Blood Donation</h4>
+          <p>
+            Join our community of lifesavers by donating blood regularly.
+          </p>
+          <a href="#">Learn More <i class="ri-arrow-right-line"></i></a>
+        </div>
+        <div class="explore__card">
+          <span><i class="ri-hospital-line"></i></span>
+          <h4>Blood Testing</h4>
+          <p>
+            Get your blood tested for various health conditions and stay informed.
+          </p>
+          <a href="#">Learn More <i class="ri-arrow-right-line"></i></a>
+        </div>
+        <div class="explore__card">
+          <span><i class="ri-user-heart-fill"></i></span>
+          <h4>Donor Finder</h4>
+          <p>
+            We provide resources and support for patients in need of blood. We locate them from our database and connect them with donors.
+          </p>
+          <a href="./find-donors.php" target="_blank" style="color: white; text-decoration: none;">Find Now!!!<i class="ri-arrow-right-line"></i></a>
+        </div>
+        <div class="explore__card">
+          <span><i class="ri-team-fill"></i></span>
+          <h4>Community Engagement</h4>
+          <p>
+            Get involved in our community initiatives to promote blood donation awareness.
+          </p>
+          <a href="#">Learn More <i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container class__container section__container1">
+      <div class="class__content">
+        <h2 class="section__header">OUR IMPACT ON LIVES</h2>
+        <p>
+          Every donation helps us provide life-saving blood to patients in need. Join us in making a difference.
+        </p>
+        <button class="btn">Join Our Community</button>
+      </div>
+    </section>
+
+    <section class="section__container price__container">
+      <h2 class="section__header">GET INVOLVED</h2>
+      <p class="section__subheader">
+        We offer various ways for you to contribute and support our mission.
+      </p>
+      <div class="price__grid">
+        <div class="price__card">
+          <h4>Become a Donor</h4>
+          <p>Your blood can save lives. Sign up today!</p>
+          <button class="btn price__btn">Sign Up</button>
+        </div>
+        <div class="price__card">
+          <h4>Volunteer with Us</h4>
+          <p>Join our team of dedicated volunteers to help spread awareness.</p>
+          <button class="btn price__btn">Get Involved</button>
+        </div>
+        <div class="price__card">
+          <h4>Donate Resources</h4>
+          <p>Support our cause by donating resources or funds.</p>
+          <button class="btn price__btn">Donate Now</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="review">
+      <div class="section__container review__container">
+        <span><i class="ri-double-quotes-r"></i></span>
+        <div class="review__content">
+          <h4>USER REVIEW</h4>
+          <p>
+            Donating blood is one of the most rewarding experiences I've ever had. The staff was friendly and the process was quick and easy. Knowing that I helped save a life is truly fulfilling!
+          </p>
+          <div class="review__rating">
+            <span><i class="ri-star-fill"></i></span>
+            <span><i class="ri-star-fill"></i></span>
+            <span><i class="ri-star-fill"></i></span>
+            <span><i class="ri-star-fill"></i></span>
+            <span><i class="ri-star-half-fill"></i></span>
+          </div>
+          <div class="review__footer">
+            <div class="review__member">
+              <img src="images gym new/m11.jpg" alt="member" />
+              <h5>Varun Kumar V</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer__links">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__contact">
+        <h5>Contact Us</h5>
+        <p>Email: info@bloodbank.com</p>
+        <p>Phone: +91 8248923711</p>
+      </div>
+    </footer>
+    <div class="footer__bar">
+      <p>&copy; 2024 Donate Blood Plus. All rights reserved.</p>
+    </div>
+  </body>
+</html>
